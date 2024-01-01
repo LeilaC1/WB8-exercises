@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+</head>
+<body>
+    <h1>Home Page</h1>
+    <form id="userForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        
+        <p>Are you a:</p>
+        <label><input type="radio" name="role" value="instructor" required> Instructor</label>
+        <label><input type="radio" name="role" value="student" required> Student</label>
+        
+        <button type="button" id="enterBtn" onclick="saveAndRedirect()">ENTER</button>
+    </form>
+
+    <script>
+        function saveAndRedirect() {
+            const name = document.getElementById('name').value;
+            const role = document.querySelector('input[name="role"]:checked').value;
+
+            localStorage.setItem('userName', name);
+            localStorage.setItem('userRole', role);
+
+            window.location.href = 'infopage.html';
+        }
+    </script>
+</body>
+</html>

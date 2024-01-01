@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Info Page</title>
+</head>
+<body>
+    <div id="content">
+        <h1 id="welcomeMessage"></h1>
+        <button onclick="doNothing()">1</button>
+        <button onclick="doNothing()">2</button>
+
+        <div id="loremText"></div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const userName = localStorage.getItem('userName');
+            const userRole = localStorage.getItem('userRole');
+
+            const welcomeMessage = document.getElementById('welcomeMessage');
+            const loremText = document.getElementById('loremText');
+
+            if (userRole === 'instructor') {
+                welcomeMessage.textContent = `Welcome Instructor ${userName}`;
+                loremText.style.color = 'blue';
+                loremText.textContent = 'Lorem ipsum text; instructors.';
+            } else if (userRole === 'student') {
+                welcomeMessage.textContent = `Welcome Student ${userName}`;
+                loremText.style.color = 'purple';
+                loremText.textContent = ' Lorem ipsum text; students.';
+            }
+        });
+
+        function doNothing() {
+        }
+    </script>
+</body>
+</html>
